@@ -64,7 +64,7 @@ $autoload['libraries'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','common');
+$autoload['helper'] = array('url','common'); // both of these [url, common] are slugs. 
 
 
 /*
@@ -80,7 +80,7 @@ $autoload['helper'] = array('url','common');
 |
 */
 
-$autoload['config'] = array('custom_config');
+$autoload['config'] = array('custom_config'); 
 
 
 /*
