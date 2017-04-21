@@ -1,5 +1,9 @@
 <?php
 // application/views/news/index.php
+
+$this->load->view($this->config->item('theme') . 'header');
+
+
 ?> 
 
 <h2><?php echo $title; ?></h2>
@@ -13,3 +17,9 @@
         <p><a href="<?php echo site_url('news/'.$news_item['slug']); ?>">View article</a></p>
 
 <?php endforeach; ?>
+
+<?php 
+
+$this->load->view($this->config->item('theme') . 'footer');  
+
+?> 
