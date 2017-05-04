@@ -68,11 +68,24 @@ class News extends CI_Controller {
 
             }
             else
-            { // say thanks for entering the data! 
-                $this->news_model->set_news();
+            { // Show the newly created news item.  
+                $slug = $this->news_model->set_news();
+                
+                if($slug){ // data looks good!
+                    feedback('News item successfully created!','notice'); 
+                    redirect('/news/view/', $slug); 
+                    
+                }else{ // data looks bad! 
+                    feedback('News item NOT created!','warning'); 
+                    redirect('/news/create'); 
+                }
+                
+                
+                
+                // $data['title'] = 'Item Entered!';
                 
                 // $this->load->view('templates/header', $data);
-                $this->load->view('news/success', $data);
+                // $this->load->view('news/success', $data);
                 // $this->load->view('templates/footer', $data);
                 
                 // $this->load->view('news/success'); // <-- this here by default. 

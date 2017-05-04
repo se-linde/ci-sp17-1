@@ -24,7 +24,9 @@ class News_model extends CI_Model { // extends the previous class.
         
     } // end get_news() method
 
-            public function set_news()
+    
+    
+    public function set_news()
         {
             $this->load->helper('url');
 
@@ -36,6 +38,31 @@ class News_model extends CI_Model { // extends the previous class.
                 'text' => $this->input->post('text')
             );
 
-            return $this->db->insert('sp17_news', $data);
-        }
+            // return $this->db->insert('sp17_news', $data);
+        
+        
+            // If you put in the value, it's assumed to be true. 
+            if($this->db->insert('sp17_news', $data)) 
+            { // data entered successfully. 
+                
+            /* 
+            // This returns the ID number of the record created. 
+            // This is the normal way to pass a newly created ID number back. 
+            return $this->db->insert_id(); 
+            
+            // The slug is used for the view, so pass it back. 
+             
+                
+            */     
+                
+                return $slug;
+                
+                
+            } else { // trouble! 
+                return false; 
+                
+            }
+        
+        } // end set_news() method. 
+    
 } // end news model class. 
