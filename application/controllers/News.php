@@ -5,7 +5,7 @@ class News extends CI_Controller {
         {
                 parent::__construct();
                 $this->load->model('news_model');
-                $this->load->helper('url_helper');
+                $this->load->helper('url');
                 $this->config->set_item('banner', 'News Banner'); 
         } // end of constructor.
 
@@ -49,7 +49,7 @@ class News extends CI_Controller {
 
     
     
-            public function create()
+        public function create()
         {
             $this->load->helper('form'); // helpers are functions.
             $this->load->library('form_validation'); // libraries are classes. 
@@ -73,7 +73,8 @@ class News extends CI_Controller {
                 
                 if($slug){ // data looks good!
                     feedback('News item successfully created!','notice'); 
-                    redirect('/news/view/', $slug); 
+                    //redirect('/news/view/', $slug);
+                    redirect('/news/view/' . $slug);
                     
                 }else{ // data looks bad! 
                     feedback('News item NOT created!','warning'); 
